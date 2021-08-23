@@ -2,24 +2,39 @@ package encryptdecrypt;
 
 public class Encrypted {
     private final String textToEncrypted;
-    private final StringBuilder textEncrypted = new StringBuilder();
+    private int numOfChar;
+    private char actualChar;
 
     public Encrypted(String textToEncrypted) {
         this.textToEncrypted = textToEncrypted;
     }
 
     public String reversedEncrypt() {
-        int numOfChar;
-        char actualChar;
+        StringBuilder textEncrypted = new StringBuilder();
+
         for (int i = 0; i < textToEncrypted.length(); i++) {
             actualChar = textToEncrypted.charAt(i);
-            if (actualChar > 96 && actualChar < 123){
+            if (actualChar > 96 && actualChar < 123) {
                 numOfChar = actualChar - 96;  //a == 97, letters == 26
                 textEncrypted.append((char) ('z' - numOfChar + 1));
-            }else {
+            } else {
                 textEncrypted.append(actualChar);
             }
         }
         return textEncrypted.toString();
     }
+
+    public String encryptByKey(int key) {
+        StringBuilder textEncrypted = new StringBuilder();
+        key = key % 26;
+        for (int i = 0; i < textToEncrypted.length(); i++) {
+            actualChar = textToEncrypted.charAt(i);
+            numOfChar = actualChar - 96;
+            textEncrypted.append(actualChar > 96 && actualChar < 123 ?
+                    (char) ((numOfChar + key > 26 ? key - 26 : key) + actualChar) : actualChar);
+
+        }
+        return textEncrypted.toString();
+    }
+
 }
