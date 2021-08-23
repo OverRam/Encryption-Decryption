@@ -24,7 +24,7 @@ public class Encrypted {
         return textEncrypted.toString();
     }
 
-    public String encryptByKey(int key) {
+    public String shiftLetterByValue(int key) {
         StringBuilder textEncrypted = new StringBuilder();
         key = key % 26;
         for (int i = 0; i < textToEncrypted.length(); i++) {
