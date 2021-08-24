@@ -1,8 +1,11 @@
 package encryptdecrypt;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Encrypted encrypted = new Encrypted("we found a treasure!");
-        System.out.println(encrypted.reversedEncrypt());
+        Scanner sc = new Scanner(System.in);
+        CryptHandler.choseCrypt(sc.nextLine(), sc.nextLine());
     }
 }
+

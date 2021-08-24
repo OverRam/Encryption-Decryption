@@ -30,8 +30,7 @@ public class Encrypted {
         for (int i = 0; i < textToEncrypted.length(); i++) {
             actualChar = textToEncrypted.charAt(i);
             numOfChar = actualChar - 96;
-            textEncrypted.append(actualChar > 96 && actualChar < 123 ?
-                    (char) ((numOfChar + key > 26 ? key - 26 : key) + actualChar) : actualChar);
+            textEncrypted.append((char) (actualChar + key));
 
         }
         return textEncrypted.toString();
