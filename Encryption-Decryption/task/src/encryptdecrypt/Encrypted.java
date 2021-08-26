@@ -5,11 +5,11 @@ public class Encrypted {
     private int numOfChar;
     private char actualChar;
 
-    public Encrypted(String textToEncrypted) {
+    Encrypted(String textToEncrypted) {
         this.textToEncrypted = textToEncrypted;
     }
 
-    public String reversedEncrypt() {
+    String reversedEncrypt() {
         StringBuilder textEncrypted = new StringBuilder();
 
         for (int i = 0; i < textToEncrypted.length(); i++) {
@@ -24,7 +24,7 @@ public class Encrypted {
         return textEncrypted.toString();
     }
 
-    public String shiftLetterByValue(int key) {
+    String shiftLetterByValue(int key) {
         StringBuilder textEncrypted = new StringBuilder();
         key = key % 26;
         for (int i = 0; i < textToEncrypted.length(); i++) {
