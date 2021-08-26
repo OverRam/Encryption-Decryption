@@ -1,17 +1,12 @@
 package encryptdecrypt;
 
 public class Decrypted {
-    String textToDecrypted;
 
-    Decrypted(String textToDecrypted) {
-        this.textToDecrypted = textToDecrypted;
-    }
-
-    String shiftLetterByValue(int key) {
+    static String shiftLetterByValue(String text, int key) {
         key = key % 26;
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < textToDecrypted.length(); i++) {
-            sb.append((char) (textToDecrypted.charAt(i) - key));
+        for (int i = 0; i < text.length(); i++) {
+            sb.append((char) (text.charAt(i) - key));
         }
         return sb.toString();
     }
